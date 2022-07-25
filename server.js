@@ -16,7 +16,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public')); // Allows the Stylesheet to display
 
 app.use(require('./controllers/'));
 

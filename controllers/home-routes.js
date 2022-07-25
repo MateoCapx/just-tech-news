@@ -5,8 +5,7 @@ const { Post, User, Comment, Vote } = require('../models');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
-  console.log('======================');
-  Post.findAll({
+  Post.findAll({  // Post.findAll() query set up to return all posts and their nested properties.
     attributes: [
       'id',
       'post_url',
@@ -30,9 +29,8 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-
-      res.render('homepage', { posts });
+      // pass a single post object into the homepage template
+      res.render('homepage', dbPostData[0]);
     })
     .catch(err => {
       console.log(err);
@@ -40,24 +38,7 @@ router.get('/', (req, res) => {
     });
 });
 
-
-router.get('/', (req, res) => {
-  res.render('homepage', {
-    id: 1,
-    post_url: 'https://handlebarsjs.com/guide/',
-    title: 'Handlebars Docs',
-    created_at: new Date(),
-    vote_count: 10,
-    comments: [{}, {}],
-    user: {
-      username: 'test_user'
-    }
-  });
-});
-
-
-router.get('/login', (req, res) => {
-  res.render('login');
-});
-
 module.exports = router;
+
+
+

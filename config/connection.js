@@ -11,6 +11,5 @@ const sequelize = process.env.JAWSDB_URL
       port: 3306
     });
 
-    console.log(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW)
     
 module.exports = sequelize;
