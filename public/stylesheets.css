@@ -177,3 +177,11 @@
     padding: 1%;
     font-size: 110%;
   }
+
+  .login-form,  .signup-form {
+ text-align: center;
+  }
+  
+  .signup-form{
+    margin-top: 100px;
+  }
